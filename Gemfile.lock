@@ -19,12 +19,17 @@ GEM
       rack (~> 2.2)
       rack-protection (= 2.2.0)
       tilt (~> 2.0)
+    sinatra-cache (0.3.7)
+      sinatra (>= 1.1.0)
+      sinatra-outputbuffer (>= 0.1.0)
     sinatra-contrib (2.2.0)
       multi_json
       mustermann (~> 1.0)
       rack-protection (= 2.2.0)
       sinatra (= 2.2.0)
       tilt (~> 2.0)
+    sinatra-outputbuffer (0.1.0)
+      sinatra (>= 1.0.a)
     tilt (2.0.10)
 
 PLATFORMS
@@ -35,7 +40,8 @@ DEPENDENCIES
   basic_yahoo_finance
   puma
   sinatra
+  sinatra-cache
   sinatra-contrib
 
 BUNDLED WITH
-   2.2.11
+   2.2.32
