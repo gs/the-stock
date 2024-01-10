@@ -4,6 +4,8 @@ require 'bundler'
 Bundler.require
 require 'sinatra/base'
 require 'sinatra/json'
+#require 'nokogiri'
+#require 'open-uri'
 
 class MyApp < Sinatra::Base
 
@@ -15,9 +17,8 @@ class MyApp < Sinatra::Base
   set :cache_enabled, true
 
   get '/' do
-    query = BasicYahooFinance::Query.new
-    data = query.quotes('YELP')
-    price = data['YELP']['regularMarketPrice']
+    page = Nokogiri::HTML(URI.open('https://www.google.com/finance/quote/YELP:NYSE'))
+    price = page.css('.YMlKec.fxKbKc')[0].text.to_s.encode("iso-8859-1").force_encoding("utf-8")
     json price: price
   end
 
